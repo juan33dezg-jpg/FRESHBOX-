@@ -1,825 +1,634 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreshBox - Come rico, vive saludable | Irapuato</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            green: '#1b4332',
-                            lightGreen: '#2d6a4f',
-                            mint: '#d8f3dc',
-                            bgMint: '#f2f9f5',
-                            orange: '#e05a2b',
-                            lightOrange: '#ffebd9',
-                            yellow: '#f4a261',
-                            dark: '#111827'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .custom-gradient {
-            background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 60%, #1e5138 100%);
-        }
-        .hero-pattern {
-            background-color: #1b4332;
-            background-image: radial-gradient(#2d6a4f 0.8px, transparent 0.8px), radial-gradient(#2d6a4f 0.8px, #1b4332 0.8px);
-            background-size: 32px 32px;
-            background-position: 0 0, 16px 16px;
-        }
-    </style>
-</head>
-<body class="font-sans text-gray-800 bg-slate-50 antialiased selection:bg-brand-orange selection:text-white">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshBox - Tu Dieta Balanceada</title>
+  
+  <!-- Estilos y Tipografía CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-brand-orange text-white text-xs sm:text-sm font-medium py-2 px-4 text-center flex items-center justify-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-white animate-pulse"></span>
-        <span>¡Bowl del día desde <strong>$79 MXN</strong>! Envíos directos en Irapuato</span>
+  <style>
+    :root {
+      --primary-green: #2D6A4F;
+      --dark-green: #1B4332;
+      --light-green: #E8F5E9;
+      --brand-mint: #D8F3DC;
+      --accent-orange: #E76F51;
+      --accent-yellow: #F4A261;
+      --text-dark: #2B2D42;
+      --text-muted: #5C677D;
+      --bg-light: #F8F9FA;
+      --white: #FFFFFF;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-svg {
+      width: 42px;
+      height: 42px;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark-green);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .btn-whatsapp-nav {
+      background: #25D366;
+      color: white !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+
+    .btn-whatsapp-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+      color: white;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--brand-mint);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .price-tag {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--accent-yellow);
+      margin: 1rem 0;
+    }
+
+    .btn-cta {
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-cta:hover {
+      background: #20ba5a;
+      transform: translateY(-2px);
+    }
+
+    /* Section Commons */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--dark-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* Proposal Cards */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--light-green);
+      color: var(--primary-green);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark-green);
+    }
+
+    /* Target Audience */
+    .target-box {
+      background: linear-gradient(135deg, var(--light-green) 0%, #FFFFFF 100%);
+      border-radius: var(--radius);
+      padding: 3rem;
+      border: 1px solid rgba(45, 106, 79, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .target-content {
+      flex: 1;
+    }
+
+    .target-badge {
+      background: var(--primary-green);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Interactive Ordering Section */
+    .order-builder {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .option-card {
+      border: 2px solid #E0E0E0;
+      border-radius: 12px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .option-card.selected {
+      border-color: var(--primary-green);
+      background: var(--light-green);
+    }
+
+    .option-card h4 {
+      color: var(--dark-green);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Customer Care Steps */
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--primary-green);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-number {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-green);
+      color: white;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-subtitle {
+        margin: 0 auto 2rem;
+      }
+      .target-box {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-wrapper">
+        <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 25,40 L 75,40 L 75,75 C 75,80 70,85 65,85 L 35,85 C 30,85 25,80 25,75 Z" stroke="#E76F51" stroke-width="7" fill="none" stroke-linejoin="round"/>
+          <path d="M 25,40 L 35,50 L 65,50 L 75,40" stroke="#E76F51" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M 35,42 C 30,25 45,15 50,20 C 55,15 70,25 65,42 C 55,38 45,38 35,42 Z" stroke="#2D6A4F" stroke-width="6" fill="none" stroke-linejoin="round"/>
+          <path d="M 50,20 L 50,38" stroke="#2D6A4F" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-text">FreshBox</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#modelo">Modelo</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#pedir">Armar Pedido</a></li>
+        <li><a href="#atencion">Atención</a></li>
+        <li>
+          <a href="https://wa.me/?text=%C2%A1Hola!%20Gracias%20por%20contactar%20a%20FreshBox.%20%C2%BFQuieres%20conocer%20el%20men%C3%BA,%20hacer%20un%20pedido%20o%20recibir%20ayuda%20con%20una%20compra?" target="_blank" class="btn-whatsapp-nav">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div>
+        <span class="hero-badge">Tu Dieta Balanceada</span>
+        <h1 class="hero-title">COME BIEN.<br>SIGUE TU DÍA.</h1>
+        <p class="hero-subtitle">"Come rico, vive saludable" — Facilitamos tu alimentación diaria con frescura, calidad y conveniencia en Irapuato.</p>
+      </div>
+      <div class="hero-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Bowl del día</h3>
+        <p style="opacity: 0.8;">Opciones ágiles, saludables y accesibles</p>
+        <div class="price-tag">desde $79 MXN</div>
+        <a href="https://wa.me/?text=%C2%A1Hola!%20Me%20interesa%20ordenar%20el%20Bowl%20del%20d%C3%ADa%20desde%20%2479%20MXN" target="_blank" class="btn-cta">
+          <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> PIDE POR WHATSAPP
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Model & Target Section -->
+  <section id="modelo" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Esquema Modelo de Negocio</h2>
+      <p class="section-desc">Modelo B2C Directo con gestión digital previa y entregas locales</p>
     </div>
 
-    <!-- NAVBAR -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-emerald-100 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                
-                <!-- BRAND LOGO -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-11 h-11 flex items-center justify-center rounded-xl bg-brand-bgMint p-1 shadow-sm border border-emerald-200 group-hover:scale-105 transition-transform">
-                        <!-- Custom SVG Logo matching uploaded image -->
-                        <svg viewBox="0 0 100 100" class="w-full h-full">
-                            <!-- Leaves (Green) -->
-                            <path d="M 38,20 C 35,40 50,48 60,45 C 60,30 48,20 38,20 Z" fill="#2d6a4f" />
-                            <path d="M 38,20 C 45,28 50,38 48,46" stroke="#1b4332" stroke-width="2" fill="none" stroke-linecap="round"/>
-                            <path d="M 60,20 C 65,38 52,48 40,45 C 42,28 52,18 60,20 Z" fill="#1b4332" />
-                            <path d="M 60,20 C 53,28 48,38 50,46" stroke="#2d6a4f" stroke-width="2" fill="none" stroke-linecap="round"/>
-                            <!-- Box (Orange) -->
-                            <path d="M 25,42 L 38,42 L 38,50 L 62,50 L 62,42 L 75,42 L 75,70 C 75,76 70,80 62,83 L 50,86 L 38,83 C 30,80 25,76 25,70 Z" fill="#e05a2b" />
-                            <path d="M 25,42 L 50,55 L 75,42" fill="none" stroke="#ff8c66" stroke-width="2" />
-                            <path d="M 38,50 L 50,58 L 62,50" fill="none" stroke="#c44317" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div>
-                        <span class="text-2xl font-black tracking-tight text-brand-green block leading-none">FreshBox</span>
-                        <span class="text-[10px] font-semibold tracking-wider text-brand-orange uppercase">Come rico, vive saludable</span>
-                    </div>
-                </a>
+    <div class="target-box" style="margin-bottom: 3rem;">
+      <div class="target-content">
+        <span class="target-badge">Perfil de Cliente Objetivo</span>
+        <h3 style="font-size: 1.8rem; color: var(--dark-green); margin: 0.8rem 0;">Estudiantes y Trabajadores (18 a 40 años)</h3>
+        <p style="color: var(--text-muted);">Ubicados en Irapuato que buscan opciones ágiles, saludables y accesibles para su día a día sin complicaciones.</p>
+      </div>
+      <div>
+        <i class="fas fa-user-graduate" style="font-size: 4rem; color: var(--primary-green); opacity: 0.8;"></i>
+      </div>
+    </div>
 
-                <!-- DESKTOP MENU -->
-                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
-                    <a href="#menu" class="hover:text-brand-orange transition-colors">Menú</a>
-                    <a href="#paquetes" class="hover:text-brand-orange transition-colors">Paquetes Semanales</a>
-                    <a href="#modelo" class="hover:text-brand-orange transition-colors">Modelo B2C</a>
-                    <a href="#servicio" class="hover:text-brand-orange transition-colors">Servicio</a>
-                    <a href="#calculadora" class="hover:text-brand-orange transition-colors">Simular Pedido</a>
-                </nav>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-utensils"></i></div>
+        <h3 class="card-title">Venta Individual</h3>
+        <p style="color: var(--text-muted);">Alimentos al momento: bowls, ensaladas, sándwiches y snacks con precio desde $79 MXN.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+        <h3 class="card-title">Paquetes Semanales</h3>
+        <p style="color: var(--text-muted);">5 comidas semanales con pago anticipado (sin cargos ni renovaciones automáticas).</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-truck"></i></div>
+        <h3 class="card-title">Logística Flexible</h3>
+        <p style="color: var(--text-muted);">Recolección directa sin costo o entrega local con tarifa según distancia preagendada.</p>
+      </div>
+    </div>
+  </section>
 
-                <!-- CTA BUTTON -->
-                <div class="hidden sm:flex items-center gap-3">
-                    <a href="https://wa.me/524621234567?text=¡Hola!%20Me%20gustaría%20ordenar%20en%20FreshBox" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 text-sm">
-                        <i data-lucide="message-circle" class="w-4 h-4 fill-current"></i>
-                        <span>Pedir por WhatsApp</span>
-                    </a>
-                </div>
+  <!-- Interactive Order Builder -->
+  <section id="pedir" class="section" style="background: rgba(45, 106, 79, 0.03); border-radius: 24px;">
+    <div class="section-header">
+      <h2 class="section-title">Arma tu Pedido Rápido</h2>
+      <p class="section-desc">Selecciona tu platillo y genera tu mensaje directo para WhatsApp</p>
+    </div>
 
-                <!-- MOBILE MENU BUTTON -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
+    <div class="order-builder">
+      <h3 style="margin-bottom: 1rem; color: var(--dark-green);">1. Selecciona tu base:</h3>
+      <div class="options-grid">
+        <div class="option-card selected" onclick="selectOption(this, 'Bowl del Día', 79)">
+          <h4>Bowl del Día</h4>
+          <p style="color: var(--accent-orange); font-weight: 700;">$79 MXN</p>
         </div>
-
-        <!-- MOBILE MENU DROPDOWN -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
-            <a href="#menu" class="block py-2 text-gray-700 font-medium hover:text-brand-orange">Menú & Precios</a>
-            <a href="#paquetes" class="block py-2 text-gray-700 font-medium hover:text-brand-orange">Paquetes Semanales</a>
-            <a href="#modelo" class="block py-2 text-gray-700 font-medium hover:text-brand-orange">Modelo B2C</a>
-            <a href="#servicio" class="block py-2 text-gray-700 font-medium hover:text-brand-orange">Atención al Cliente</a>
-            <a href="#calculadora" class="block py-2 text-gray-700 font-medium hover:text-brand-orange">Armar Pedido</a>
-            <a href="https://wa.me/524621234567?text=¡Hola!%20Me%20gustaría%20ordenar%20en%20FreshBox" target="_blank" class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-3 rounded-xl shadow mt-2">
-                <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-                <span>Pedir por WhatsApp</span>
-            </a>
+        <div class="option-card" onclick="selectOption(this, 'Ensalada Fresca', 85)">
+          <h4>Ensalada Fresca</h4>
+          <p style="color: var(--accent-orange); font-weight: 700;">$85 MXN</p>
         </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="relative hero-pattern text-white overflow-hidden py-16 lg:py-24">
-        <!-- Accent Glow Blob -->
-        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                
-                <!-- Hero Content -->
-                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-brand-mint">
-                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-orange"></i>
-                        <span>Especial para Estudiantes y Trabajadores en Irapuato</span>
-                    </div>
-
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                        <span class="block text-brand-yellow uppercase tracking-wider text-2xl sm:text-3xl mb-2">COME BIEN.</span>
-                        SIGUE TU DÍA.
-                    </h1>
-
-                    <p class="text-lg sm:text-xl text-emerald-100 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        Bowls, ensaladas y sándwiches frescos, saludables y accesibles. Preparados al momento para recolección o entrega rápida en tu lugar de trabajo o estudio.
-                    </p>
-
-                    <!-- Price highlight card -->
-                    <div class="pt-2 pb-2">
-                        <div class="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md border border-emerald-400/30 p-3 sm:p-4 rounded-2xl">
-                            <div class="bg-brand-orange text-white font-extrabold px-4 py-2 rounded-xl text-xl sm:text-2xl shadow-lg">
-                                Desde $79 <span class="text-xs font-medium">MXN</span>
-                            </div>
-                            <div class="text-left">
-                                <span class="block font-bold text-white text-sm sm:text-base">Bowl del día disponible</span>
-                                <span class="text-xs text-emerald-200">Frescura natural, nutrición garantizada</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Call to action buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                        <a href="https://wa.me/524621234567?text=¡Hola!%20Quiero%20pedir%20el%20Bowl%20del%20Día%20de%20$79%20MXN" target="_blank" class="inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-brand-green font-extrabold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 text-lg transform hover:-translate-y-1">
-                            <i data-lucide="message-circle" class="w-6 h-6 fill-current"></i>
-                            <span>PIDE POR WHATSAPP</span>
-                        </a>
-                        <a href="#calculadora" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-4 rounded-2xl border border-white/20 transition-all text-base">
-                            <i data-lucide="calculator" class="w-5 h-5 text-brand-yellow"></i>
-                            <span>Armar mi Menú</span>
-                        </a>
-                    </div>
-
-                    <!-- Trust indicators -->
-                    <div class="pt-6 border-t border-emerald-800/60 grid grid-cols-3 gap-2 text-center lg:text-left text-xs sm:text-sm text-emerald-200">
-                        <div class="flex items-center justify-center lg:justify-start gap-2">
-                            <i data-lucide="check-circle" class="w-4 h-4 text-brand-yellow"></i>
-                            <span>100% Fresco</span>
-                        </div>
-                        <div class="flex items-center justify-center lg:justify-start gap-2">
-                            <i data-lucide="clock" class="w-4 h-4 text-brand-yellow"></i>
-                            <span>Respuesta &lt;15 min</span>
-                        </div>
-                        <div class="flex items-center justify-center lg:justify-start gap-2">
-                            <i data-lucide="truck" class="w-4 h-4 text-brand-yellow"></i>
-                            <span>Entrega Local</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hero Graphic Banner (Illustrative Frame matching Brand Identity) -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl border-4 border-emerald-600/30 text-gray-800 space-y-6">
-                        
-                        <!-- Header inside mock -->
-                        <div class="flex items-center justify-between border-b pb-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-brand-bgMint flex items-center justify-center">
-                                    <!-- Mini logo -->
-                                    <svg viewBox="0 0 100 100" class="w-8 h-8">
-                                        <path d="M 38,20 C 35,40 50,48 60,45 C 60,30 48,20 38,20 Z" fill="#2d6a4f" />
-                                        <path d="M 60,20 C 65,38 52,48 40,45 C 42,28 52,18 60,20 Z" fill="#1b4332" />
-                                        <path d="M 25,42 L 38,42 L 38,50 L 62,50 L 62,42 L 75,42 L 75,70 C 75,76 70,80 62,83 L 50,86 L 38,83 C 30,80 25,76 25,70 Z" fill="#e05a2b" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-gray-900 leading-tight">FreshBox App Web</h3>
-                                    <p class="text-xs text-gray-500">Irapuato, Guanajuato</p>
-                                </div>
-                            </div>
-                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Activo</span>
-                        </div>
-
-                        <!-- Card preview -->
-                        <div class="bg-gradient-to-br from-emerald-900 to-brand-green text-white p-5 rounded-2xl shadow-inner relative overflow-hidden">
-                            <span class="text-xs font-bold text-brand-yellow uppercase tracking-wider block mb-1">Inspiración Saludable</span>
-                            <h4 class="text-xl font-extrabold mb-2">Caja Balanceada Diaria</h4>
-                            <p class="text-xs text-emerald-100 mb-4">La caja simboliza practicidad; la hoja representa frescura natural.</p>
-                            <div class="flex justify-between items-center bg-white/10 p-3 rounded-xl backdrop-blur-sm border border-white/10">
-                                <div>
-                                    <span class="text-[10px] text-emerald-200 block">PRECIO BASE</span>
-                                    <span class="text-xl font-black text-white">$79.00 MXN</span>
-                                </div>
-                                <span class="bg-brand-orange text-white text-xs font-bold px-3 py-1.5 rounded-lg">Pide Ahora</span>
-                            </div>
-                        </div>
-
-                        <!-- Features pill list -->
-                        <div class="space-y-2.5 text-xs font-medium text-gray-600">
-                            <div class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
-                                <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">1</div>
-                                <span><strong>Individual:</strong> Bowls, ensaladas y snacks al momento.</span>
-                            </div>
-                            <div class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
-                                <div class="w-7 h-7 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center font-bold">2</div>
-                                <span><strong>Paquetes Semanales:</strong> 5 comidas sin ataduras.</span>
-                            </div>
-                            <div class="flex items-center gap-3 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
-                                <div class="w-7 h-7 rounded-full bg-yellow-100 text-yellow-800 flex items-center justify-center font-bold">3</div>
-                                <span><strong>Logística:</strong> Recolección gratis o envío local.</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+        <div class="option-card" onclick="selectOption(this, 'Sándwich Balanceado', 79)">
+          <h4>Sándwich Fit</h4>
+          <p style="color: var(--accent-orange); font-weight: 700;">$79 MXN</p>
         </div>
-    </section>
-
-    <!-- PROPOSICIÓN DE VALOR & MODELO B2C -->
-    <section id="modelo" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-2">Esquema Modelo de Negocio</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Alimentación Agil, Saludable y Accesible</h2>
-                <p class="mt-4 text-gray-600 text-base sm:text-lg">
-                    "Facilitamos la alimentación diaria mediante un modelo B2C ágil, canal digital directo y una propuesta clara basada en frescura, calidad y conveniencia."
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- B2C Card -->
-                <div class="bg-brand-bgMint border border-emerald-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
-                    <div class="w-14 h-14 bg-emerald-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                        <i data-lucide="users" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Modelo B2C Directo</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Venta directa al consumidor final. Captación y gestión digital previa; preparación cuidadosa y entrega en punto físico o a domicilio local.
-                    </p>
-                    <div class="inline-block bg-white text-emerald-800 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-200">
-                        Atención personalizada
-                    </div>
-                </div>
-
-                <!-- Target Profile Card -->
-                <div class="bg-orange-50/60 border border-orange-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
-                    <div class="w-14 h-14 bg-brand-orange text-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                        <i data-lucide="target" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Cliente Objetivo</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        Diseñado para estudiantes y trabajadores de <strong>18 a 40 años en Irapuato</strong> que buscan opciones ágiles, saludables y accesibles para su día a día.
-                    </p>
-                    <div class="inline-block bg-white text-brand-orange text-xs font-semibold px-3 py-1.5 rounded-lg border border-orange-200">
-                        Irapuato, Gto.
-                    </div>
-                </div>
-
-                <!-- Branding & Identity Card -->
-                <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
-                    <div class="w-14 h-14 bg-gray-800 text-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                        <i data-lucide="sparkles" class="w-7 h-7"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Identidad de Marca</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        <strong>Significado:</strong> La caja simboliza practicidad; la hoja representa frescura natural.<br>
-                        <strong>Colores:</strong> Verde (saludable) y Amarillo/Naranja (energía y cercanía).
-                    </p>
-                    <div class="inline-block bg-white text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-200">
-                        Come rico, vive saludable
-                    </div>
-                </div>
-
-            </div>
-
+        <div class="option-card" onclick="selectOption(this, 'Paquete Semanal (5 comidas)', 395)">
+          <h4>Paquete Semanal</h4>
+          <p style="color: var(--accent-orange); font-weight: 700;">$395 MXN</p>
         </div>
-    </section>
+      </div>
 
-    <!-- MENU & VENTA INDIVIDUAL -->
-    <section id="menu" class="py-16 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-1">Alimentos al Momento</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Venta Individual</h2>
-                    <p class="text-gray-600 text-base mt-2">Platillos equilibrados preparados con insumos frescos día con día desde $79 MXN.</p>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-4 py-2 rounded-xl">
-                        <i data-lucide="leaf" class="w-4 h-4"></i> Opciones Vegetarianas & Proteicas
-                    </span>
-                </div>
-            </div>
-
-            <!-- MENU GRID -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- MENU ITEM 1 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
-                            <i data-lucide="salad" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xs font-bold text-brand-orange uppercase">Popular</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Bowl Balanceado</h3>
-                        <p class="text-gray-500 text-xs leading-relaxed mb-4">
-                            Base de quinoa o arroz integral, vegetal verde fresco, proteína a elegir (pollo/tofu) y aderezo artesanal.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
-                        <div>
-                            <span class="text-[10px] text-gray-400 block uppercase font-bold">Desde</span>
-                            <span class="text-2xl font-black text-brand-green">$79 <span class="text-xs font-normal text-gray-500">MXN</span></span>
-                        </div>
-                        <button onclick="quickOrder('Bowl Balanceado', 79)" class="bg-emerald-600 hover:bg-emerald-700 text-white p-2.5 rounded-xl transition-colors">
-                            <i data-lucide="plus" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- MENU ITEM 2 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center mb-4">
-                            <i data-lucide="sparkle" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xs font-bold text-emerald-600 uppercase">Fresco</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Ensalada de la Casa</h3>
-                        <p class="text-gray-500 text-xs leading-relaxed mb-4">
-                            Mezcla de lechugas, jitomate cherry, pepino, cebolla morada, semillas tostadas y vinagreta cítrica.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
-                        <div>
-                            <span class="text-[10px] text-gray-400 block uppercase font-bold">Desde</span>
-                            <span class="text-2xl font-black text-brand-green">$85 <span class="text-xs font-normal text-gray-500">MXN</span></span>
-                        </div>
-                        <button onclick="quickOrder('Ensalada de la Casa', 85)" class="bg-emerald-600 hover:bg-emerald-700 text-white p-2.5 rounded-xl transition-colors">
-                            <i data-lucide="plus" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- MENU ITEM 3 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center mb-4">
-                            <i data-lucide="sandwich" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xs font-bold text-brand-orange uppercase">Práctico</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Sándwich Integral</h3>
-                        <p class="text-gray-500 text-xs leading-relaxed mb-4">
-                            Pan multigrano, pavo o hummous, aguacate, germinados y vegetales crujientes con aderezo ligero.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
-                        <div>
-                            <span class="text-[10px] text-gray-400 block uppercase font-bold">Desde</span>
-                            <span class="text-2xl font-black text-brand-green">$89 <span class="text-xs font-normal text-gray-500">MXN</span></span>
-                        </div>
-                        <button onclick="quickOrder('Sándwich Integral', 89)" class="bg-emerald-600 hover:bg-emerald-700 text-white p-2.5 rounded-xl transition-colors">
-                            <i data-lucide="plus" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- MENU ITEM 4 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col justify-between">
-                    <div class="p-6">
-                        <div class="w-12 h-12 rounded-xl bg-yellow-100 text-yellow-700 flex items-center justify-center mb-4">
-                            <i data-lucide="apple" class="w-6 h-6"></i>
-                        </div>
-                        <span class="text-xs font-bold text-yellow-600 uppercase">Energía</span>
-                        <h3 class="text-xl font-bold text-gray-900 mt-1 mb-2">Snack Saludable</h3>
-                        <p class="text-gray-500 text-xs leading-relaxed mb-4">
-                            Fruta de temporada picada, mix de frutos secos, barras de avena caseras o yogurt griego con chía.
-                        </p>
-                    </div>
-                    <div class="px-6 pb-6 pt-2 border-t border-gray-50 flex items-center justify-between">
-                        <div>
-                            <span class="text-[10px] text-gray-400 block uppercase font-bold">Desde</span>
-                            <span class="text-2xl font-black text-brand-green">$45 <span class="text-xs font-normal text-gray-500">MXN</span></span>
-                        </div>
-                        <button onclick="quickOrder('Snack Saludable', 45)" class="bg-emerald-600 hover:bg-emerald-700 text-white p-2.5 rounded-xl transition-colors">
-                            <i data-lucide="plus" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
+      <h3 style="margin: 1.5rem 0 1rem; color: var(--dark-green);">2. Modalidad de Entrega:</h3>
+      <div class="options-grid">
+        <div class="option-card selected" onclick="selectDelivery(this, 'Recolección directa (Sin costo)')">
+          <h4>Recolección Directa</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Sin costo adicional</p>
         </div>
-    </section>
-
-    <!-- PAQUETES SEMANALES & LOGÍSTICA -->
-    <section id="paquetes" class="py-16 bg-white border-y border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Paquetes Semanales -->
-                <div class="bg-gradient-to-br from-brand-green to-emerald-900 text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-orange/20 rounded-full blur-2xl"></div>
-                    
-                    <span class="inline-block bg-brand-orange text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
-                        Ahorro & Comodidad
-                    </span>
-                    <h3 class="text-3xl font-extrabold mb-4">Paquetes Semanales</h3>
-                    <p class="text-emerald-100 text-sm mb-6 leading-relaxed">
-                        Asegura tus comidas de la semana laboral o de estudio sin complicaciones. Planeación fácil y directa.
-                    </p>
-
-                    <ul class="space-y-4 text-sm font-medium mb-8">
-                        <li class="flex items-start gap-3">
-                            <div class="p-1 bg-emerald-500 text-white rounded-full mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4"></i>
-                            </div>
-                            <span><strong>5 comidas semanales</strong> con pago anticipado.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="p-1 bg-emerald-500 text-white rounded-full mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4"></i>
-                            </div>
-                            <span><strong>Sin cargos ocultos</strong> ni renovaciones automáticas forzosas.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="p-1 bg-emerald-500 text-white rounded-full mt-0.5">
-                                <i data-lucide="check" class="w-4 h-4"></i>
-                            </div>
-                            <span>Menú variado de lunes a viernes coordinado previamente.</span>
-                        </li>
-                    </ul>
-
-                    <div class="pt-4 border-t border-emerald-700/60 flex items-center justify-between flex-wrap gap-4">
-                        <div>
-                            <span class="text-xs text-emerald-200 block">PAQUETE 5 COMIDAS</span>
-                            <span class="text-3xl font-black text-brand-yellow">$375 <span class="text-sm font-normal text-emerald-200">MXN /sem</span></span>
-                        </div>
-                        <a href="https://wa.me/524621234567?text=¡Hola!%20Me%20interesa%20contratar%20el%20Paquete%20Semanal%20de%20FreshBox" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl transition-colors shadow-md text-sm inline-flex items-center gap-2">
-                            <span>Solicitar Paquete</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Logística Flexible -->
-                <div class="space-y-6">
-                    <div>
-                        <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-1">Flexibilidad Total</span>
-                        <h2 class="text-3xl font-extrabold text-gray-900">Logística Pensada en Tu Rutina</h2>
-                        <p class="text-gray-600 text-sm sm:text-base mt-2">
-                            Adaptamos la entrega a tus horarios en Irapuato para que nunca interrumpas tu jornada de estudio o trabajo.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        
-                        <!-- Pickup -->
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-300 transition-colors">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3">
-                                <i data-lucide="store" class="w-5 h-5"></i>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-1">Recolección Directa</h4>
-                            <p class="text-xs text-gray-500">Recoge tu pedido en nuestro punto físico sin ningún costo adicional.</p>
-                            <span class="inline-block mt-3 text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded">GRATIS</span>
-                        </div>
-
-                        <!-- Delivery -->
-                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-orange-300 transition-colors">
-                            <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center mb-3">
-                                <i data-lucide="truck" class="w-5 h-5"></i>
-                            </div>
-                            <h4 class="font-bold text-gray-900 mb-1">Entrega Local Localizada</h4>
-                            <p class="text-xs text-gray-500">Envío ágil preagendado con tarifa ajustada según distancia en Irapuato.</p>
-                            <span class="inline-block mt-3 text-xs font-bold text-brand-orange bg-orange-50 px-2.5 py-1 rounded">Preagendado</span>
-                        </div>
-
-                    </div>
-
-                    <!-- Horario alert -->
-                    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm flex items-center gap-3">
-                        <i data-lucide="clock" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
-                        <span><strong>Horario de atención & entregas:</strong> Lunes a Viernes de 8:00 a 17:00 h.</span>
-                    </div>
-
-                </div>
-
-            </div>
+        <div class="option-card" onclick="selectDelivery(this, 'Entrega a domicilio local')">
+          <h4>A Domicilio</h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Tarifa según distancia</p>
         </div>
-    </section>
+      </div>
 
-    <!-- ATENCIÓN AL CLIENTE Y PROCESO DE SERVICIO (PASO 1 A 4) -->
-    <section id="servicio" class="py-16 bg-brand-bgMint/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-brand-orange font-bold text-sm uppercase tracking-widest block mb-1">Garantía de Satisfacción</span>
-                <h2 class="text-3xl font-extrabold text-gray-900">Atención al Cliente & Post-Venta</h2>
-                <p class="text-gray-600 text-sm mt-2">Nuestro protocolo de servicio en 4 pasos para garantizar una experiencia impecable.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- PASO 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 relative">
-                    <span class="absolute top-4 right-4 text-xs font-black bg-brand-green text-white px-2.5 py-1 rounded-full">PASO 1</span>
-                    <div class="w-12 h-12 bg-emerald-50 text-brand-green rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="zap" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-2">Respuesta Rápida</h3>
-                    <p class="text-gray-500 text-xs leading-relaxed">
-                        Meta de respuesta <strong>&lt; 15 min</strong> en horario de 8:00 a 17:00 h. Respuestas automáticas listas fuera de horario.
-                    </p>
-                </div>
-
-                <!-- PASO 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 relative">
-                    <span class="absolute top-4 right-4 text-xs font-black bg-brand-green text-white px-2.5 py-1 rounded-full">PASO 2</span>
-                    <div class="w-12 h-12 bg-emerald-50 text-brand-green rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="file-check" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-2">Confirmación Clear</h3>
-                    <p class="text-gray-500 text-xs leading-relaxed">
-                        Resumen detallado con productos, total, costo de envío y hora estimada de llegada previo a entrar a cocina.
-                    </p>
-                </div>
-
-                <!-- PASO 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 relative">
-                    <span class="absolute top-4 right-4 text-xs font-black bg-brand-green text-white px-2.5 py-1 rounded-full">PASO 3</span>
-                    <div class="w-12 h-12 bg-emerald-50 text-brand-green rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-2">Solución Inmediata</h3>
-                    <p class="text-gray-500 text-xs leading-relaxed">
-                        Ante cualquier incidencia: reposición sin costo alguno o devolución resuelta en el mismo día.
-                    </p>
-                </div>
-
-                <!-- PASO 4 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100 relative">
-                    <span class="absolute top-4 right-4 text-xs font-black bg-brand-green text-white px-2.5 py-1 rounded-full">PASO 4</span>
-                    <div class="w-12 h-12 bg-emerald-50 text-brand-green rounded-xl flex items-center justify-center mb-4">
-                        <i data-lucide="star" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-2">Medición CSAT</h3>
-                    <p class="text-gray-500 text-xs leading-relaxed">
-                        Encuesta breve post-entrega (1 a 5 estrellas) para medir satisfacción y prevenir incidencias futuras.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- Auto Welcome Message Box -->
-            <div class="mt-10 max-w-3xl mx-auto bg-white rounded-2xl p-6 border border-emerald-200 shadow-sm flex flex-col sm:flex-row items-center gap-4">
-                <div class="p-3 bg-emerald-100 text-emerald-800 rounded-xl flex-shrink-0">
-                    <i data-lucide="bot" class="w-8 h-8"></i>
-                </div>
-                <div class="text-center sm:text-left">
-                    <span class="text-xs font-bold text-brand-orange uppercase block mb-1">Mensaje Automatizado de Bienvenida</span>
-                    <p class="text-sm italic text-gray-700">
-                        "¡Hola! Gracias por contactar a FreshBox. ¿Quieres conocer el menú, hacer un pedido o recibir ayuda con una compra?"
-                    </p>
-                </div>
-            </div>
-
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span style="color: var(--text-muted);">Total estimado:</span>
+          <h2 id="total-price" style="color: var(--dark-green); font-size: 2rem;">$79 MXN</h2>
         </div>
-    </section>
+        <button onclick="sendOrder()" class="btn-cta" style="border: none; cursor: pointer; max-width: 300px;">
+          <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <!-- CALCULADORA / SIMULADOR DE PEDIDO DIRECTO A WHATSAPP -->
-    <section id="calculadora" class="py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="bg-gradient-to-b from-slate-900 to-gray-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl">
-                
-                <div class="text-center mb-8">
-                    <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest block mb-1">Simulador de Pedido</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold">Arma tu Pedido FreshBox</h2>
-                    <p class="text-gray-400 text-xs sm:text-sm mt-1">Selecciona tus alimentos y envía el pedido directamente a nuestro WhatsApp Business.</p>
-                </div>
+  <!-- Customer Care Section -->
+  <section id="atencion" class="section">
+    <div class="section-header">
+      <h2 class="section-title">Atención al Cliente y Post-Venta</h2>
+      <p class="section-desc">Garantizamos una experiencia ágil y confiable en todo momento</p>
+    </div>
 
-                <form id="orderForm" onsubmit="event.preventDefault(); sendWhatsAppOrder();" class="space-y-6">
-                    
-                    <!-- Item Selection -->
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Selecciona tu Platillo o Paquete</label>
-                        <select id="itemSelect" onchange="calculateTotal()" class="w-full bg-gray-800 text-white border border-gray-700 rounded-xl p-3.5 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
-                            <option value="79" data-name="Bowl Balanceado del Día">Bowl Balanceado del Día - $79 MXN</option>
-                            <option value="85" data-name="Ensalada de la Casa">Ensalada de la Casa - $85 MXN</option>
-                            <option value="89" data-name="Sándwich Integral Gourmet">Sándwich Integral Gourmet - $89 MXN</option>
-                            <option value="45" data-name="Snack Saludable">Snack Saludable - $45 MXN</option>
-                            <option value="375" data-name="Paquete Semanal (5 Comidas)">Paquete Semanal (5 Comidas) - $375 MXN</option>
-                        </select>
-                    </div>
+    <div class="steps-container">
+      <div class="step-card">
+        <div class="step-number">Paso 1</div>
+        <h3 style="margin-bottom: 0.5rem; color: var(--dark-green);">Respuesta Rápida</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted);">Meta de respuesta &lt; 15 min en horario de 8:00 a 17:00 h. Respuestas automáticas fuera de horario.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">Paso 2</div>
+        <h3 style="margin-bottom: 0.5rem; color: var(--dark-green);">Confirmación Clara</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted);">Resumen detallado con productos, total, costo de envío y hora estimada previo a la cocina.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">Paso 3</div>
+        <h3 style="margin-bottom: 0.5rem; color: var(--dark-green);">Solución Inmediata</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted);">Ante cualquier incidencia: reposición sin costo o devolución resuelta en el mismo día.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">Paso 4</div>
+        <h3 style="margin-bottom: 0.5rem; color: var(--dark-green);">Medición CSAT</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted);">Encuesta breve post-entrega (1 a 5 estrellas) para prevenir incidencias futuras.</p>
+      </div>
+    </div>
+  </section>
 
-                    <!-- Quantity & Delivery Option Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        
-                        <div>
-                            <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Cantidad</label>
-                            <input type="number" id="quantityInput" value="1" min="1" max="20" onchange="calculateTotal()" onkeyup="calculateTotal()" class="w-full bg-gray-800 text-white border border-gray-700 rounded-xl p-3.5 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Modalidad de Entrega</label>
-                            <select id="deliverySelect" onchange="calculateTotal()" class="w-full bg-gray-800 text-white border border-gray-700 rounded-xl p-3.5 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
-                                <option value="0" data-type="Recolección en Punto Físico">Recolección Directa (Gratis)</option>
-                                <option value="25" data-type="Envío Local Irapuato">Envío a Domicilio Local (+$25 MXN est.)</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <!-- Additional Details -->
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 uppercase mb-2">Notas Especiales / Dirección en Irapuato</label>
-                        <textarea id="notesInput" rows="2" placeholder="Ej: Sin cebolla, entregar a las 1:30 pm en Col. Centro..." class="w-full bg-gray-800 text-white border border-gray-700 rounded-xl p-3.5 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm placeholder-gray-500"></textarea>
-                    </div>
-
-                    <!-- Total Breakdown -->
-                    <div class="bg-gray-800/80 p-4 rounded-2xl border border-gray-700 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-gray-400 block font-medium">TOTAL ESTIMADO</span>
-                            <span id="totalDisplay" class="text-2xl font-black text-brand-yellow">$79.00 MXN</span>
-                        </div>
-                        <span class="text-[11px] text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-3 py-1 rounded-lg">
-                            Atención &lt;15 min
-                        </span>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-brand-green font-extrabold py-4 rounded-xl transition-colors shadow-lg flex items-center justify-center gap-3 text-base">
-                        <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-                        <span>ENVIAR PEDIDO A WHATSAPP</span>
-                    </button>
-
-                </form>
-
-            </div>
-
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="logo-wrapper" style="margin-bottom: 1rem;">
+          <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 25,40 L 75,40 L 75,75 C 75,80 70,85 65,85 L 35,85 C 30,85 25,80 25,75 Z" stroke="#E76F51" stroke-width="7" fill="none" stroke-linejoin="round"/>
+            <path d="M 25,40 L 35,50 L 65,50 L 75,40" stroke="#E76F51" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M 35,42 C 30,25 45,15 50,20 C 55,15 70,25 65,42 C 55,38 45,38 35,42 Z" stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linejoin="round"/>
+            <path d="M 50,20 L 50,38" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text" style="color: white;">FreshBox</span>
         </div>
-    </section>
+        <p style="opacity: 0.8; font-size: 0.95rem;">"Facilitamos la alimentación diaria mediante un modelo B2C ágil, canal digital directo y una propuesta clara basada en frescura, calidad y conveniencia."</p>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 1rem; color: var(--brand-mint);">Horario de Atención</h4>
+        <p style="opacity: 0.8; font-size: 0.95rem;">Lunes a Viernes<br>8:00 h – 17:00 h</p>
+        <p style="opacity: 0.8; font-size: 0.95rem; margin-top: 0.5rem;">Irapuato, Guanajuato</p>
+      </div>
+      <div>
+        <h4 style="margin-bottom: 1rem; color: var(--brand-mint);">Contacto Directo</h4>
+        <a href="https://wa.me/?text=%C2%A1Hola!%20Gracias%20por%20contactar%20a%20FreshBox.%20%C2%BFQuieres%20conocer%20el%20men%C3%BA,%20hacer%20un%20pedido%20o%20recibir%20ayuda%20con%20una%20compra?" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+          <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i> WhatsApp Business
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; FreshBox. Todos los derechos reservados. www.freshbox.com.mx</p>
+    </div>
+  </footer>
 
-    <!-- FOOTER -->
-    <footer class="bg-brand-green text-white border-t border-emerald-900 pt-12 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                
-                <!-- Col 1: Brand -->
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center p-1">
-                            <svg viewBox="0 0 100 100" class="w-full h-full">
-                                <path d="M 38,20 C 35,40 50,48 60,45 C 60,30 48,20 38,20 Z" fill="#2d6a4f" />
-                                <path d="M 60,20 C 65,38 52,48 40,45 C 42,28 52,18 60,20 Z" fill="#ffffff" />
-                                <path d="M 25,42 L 38,42 L 38,50 L 62,50 L 62,42 L 75,42 L 75,70 C 75,76 70,80 62,83 L 50,86 L 38,83 C 30,80 25,76 25,70 Z" fill="#e05a2b" />
-                            </svg>
-                        </div>
-                        <span class="text-2xl font-black tracking-tight text-white">FreshBox</span>
-                    </div>
-                    <p class="text-xs text-emerald-200 leading-relaxed">
-                        "Come rico, vive saludable"<br>
-                        Alimentación balanceada, ágil y conveniente en Irapuato.
-                    </p>
-                </div>
+  <script>
+    let selectedProduct = 'Bowl del Día';
+    let selectedPrice = 79;
+    let selectedDeliveryType = 'Recolección directa (Sin costo)';
 
-                <!-- Col 2: Navigation -->
-                <div>
-                    <h4 class="text-sm font-bold text-brand-yellow uppercase tracking-wider mb-3">Navegación</h4>
-                    <ul class="space-y-2 text-xs text-emerald-100">
-                        <li><a href="#menu" class="hover:text-white transition-colors">Menú Individual</a></li>
-                        <li><a href="#paquetes" class="hover:text-white transition-colors">Paquetes Semanales</a></li>
-                        <li><a href="#modelo" class="hover:text-white transition-colors">Modelo B2C</a></li>
-                        <li><a href="#servicio" class="hover:text-white transition-colors">Atención al Cliente</a></li>
-                    </ul>
-                </div>
+    function selectOption(element, product, price) {
+      const parent = element.parentElement;
+      parent.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedProduct = product;
+      selectedPrice = price;
+      document.getElementById('total-price').innerText = `$${selectedPrice} MXN`;
+    }
 
-                <!-- Col 3: Contact & Hours -->
-                <div>
-                    <h4 class="text-sm font-bold text-brand-yellow uppercase tracking-wider mb-3">Contacto & Horario</h4>
-                    <ul class="space-y-2 text-xs text-emerald-100">
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="clock" class="w-4 h-4 text-brand-orange"></i>
-                            <span>Lun - Vie: 8:00 a 17:00 h</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-orange"></i>
-                            <span>Irapuato, Guanajuato, MX</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="globe" class="w-4 h-4 text-brand-orange"></i>
-                            <span>www.freshbox.com.mx</span>
-                        </li>
-                    </ul>
-                </div>
+    function selectDelivery(element, delivery) {
+      const parent = element.parentElement;
+      parent.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedDeliveryType = delivery;
+    }
 
-                <!-- Col 4: Social -->
-                <div>
-                    <h4 class="text-sm font-bold text-brand-yellow uppercase tracking-wider mb-3">Redes Sociales</h4>
-                    <p class="text-xs text-emerald-200 mb-3">Síguenos para ver las fotos y videos cortos de nuestros platillos del día.</p>
-                    <div class="flex gap-3">
-                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-orange rounded-xl flex items-center justify-center transition-colors">
-                            <i data-lucide="instagram" class="w-4 h-4"></i>
-                        </a>
-                        <a href="#" class="w-9 h-9 bg-white/10 hover:bg-brand-orange rounded-xl flex items-center justify-center transition-colors">
-                            <i data-lucide="facebook" class="w-4 h-4"></i>
-                        </a>
-                        <a href="https://wa.me/524621234567" target="_blank" class="w-9 h-9 bg-white/10 hover:bg-emerald-500 rounded-xl flex items-center justify-center transition-colors">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
+    function sendOrder() {
+      const text = `¡Hola! Me gustaría hacer un pedido en FreshBox:%0A- *Producto:* ${selectedProduct} ($${selectedPrice} MXN)%0A- *Entrega:* ${selectedDeliveryType}`;
+      window.open(`https://wa.me/?text=${text}`, '_blank');
+    }
+  </script>
 
-            </div>
-
-            <div class="border-t border-emerald-900 pt-6 text-center text-xs text-emerald-300">
-                <p>&copy; 2026 FreshBox Irapuato. Todos los derechos reservados. "Come rico, vive saludable".</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        <!-- Mobile menu toggle -->
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Order calculator logic
-        function calculateTotal() {
-            const itemSelect = document.getElementById('itemSelect');
-            const price = parseFloat(itemSelect.value);
-            const quantity = parseInt(document.getElementById('quantityInput').value) || 1;
-            const deliveryCost = parseFloat(document.getElementById('deliverySelect').value);
-
-            const total = (price * quantity) + deliveryCost;
-            document.getElementById('totalDisplay').textContent = `$${total.toFixed(2)} MXN`;
-        }
-
-        function quickOrder(itemName, price) {
-            const select = document.getElementById('itemSelect');
-            for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].text.includes(itemName)) {
-                    select.selectedIndex = i;
-                    break;
-                }
-            }
-            document.getElementById('quantityInput').value = 1;
-            calculateTotal();
-            document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function sendWhatsAppOrder() {
-            const select = document.getElementById('itemSelect');
-            const selectedOption = select.options[select.selectedIndex];
-            const itemName = selectedOption.getAttribute('data-name');
-            const price = parseFloat(select.value);
-            const quantity = document.getElementById('quantityInput').value;
-            
-            const deliverySelect = document.getElementById('deliverySelect');
-            const deliveryOption = deliverySelect.options[deliverySelect.selectedIndex];
-            const deliveryType = deliveryOption.getAttribute('data-type');
-            const deliveryCost = parseFloat(deliverySelect.value);
-
-            const notes = document.getElementById('notesInput').value.trim();
-
-            const total = (price * parseInt(quantity)) + deliveryCost;
-
-            let message = `¡Hola FreshBox! 🥗 Me gustaría realizar el siguiente pedido:\n\n`;
-            message += `• *Producto:* ${itemName}\n`;
-            message += `• *Cantidad:* ${quantity}\n`;
-            message += `• *Entrega:* ${deliveryType}\n`;
-            if (notes) {
-                message += `• *Notas / Dirección:* ${notes}\n`;
-            }
-            message += `\n*Total Estimado:* $${total.toFixed(2)} MXN\n\n¿Me ayudan a confirmar disponiblidad y tiempo de entrega en Irapuato?`;
-
-            const whatsappUrl = `https://wa.me/524621234567?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Run initial calculation
-        calculateTotal();
-    </script>
+</body>
+</html>
 </body>
 </html>
